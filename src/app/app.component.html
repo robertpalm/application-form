@@ -1,22 +1,47 @@
 <div class="container">
-<h1>Application Form</h1>
+  <h1>Application Form</h1>
 
-    <form>
-      <div class="form-container">
-        <label>Name</label>
-        <input type="text" required>
-        <label>Surname</label>
-        <input type="text" required>
-        <label>E-mail</label>
-        <input type="email" required>
-        <label>Working experience (months) </label>
-        <input type="number" required>
-      </div>
-      <div class="btn-container">
-        <button>Submit</button>
-        <button>Reset</button>
-      </div>
+  <form #form="ngForm">
+    <div class="form-container">
+      <label>Name</label>
+      <input type="text"
+             name="firstName"
+             required
+             [(ngModel)]="firstName" #fN=ngModel
+      >
+      <div *ngIf="fN.invalid && (fN.dirty || fN.touched)" class="small-error">This field can't be empty</div>
 
-    </form>
+      <label>Surname</label>
+      <input type="text"
+             name="lastName"
+             required
+             [(ngModel)]="lastName" #lN=ngModel
+      >
+      <div *ngIf="lN.invalid && (lN.dirty || lN.touched)" class="small-error">This field can't be empty</div>
+
+      <label>E-mail</label>
+      <input type="text"
+             name="email"
+             required
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+             [(ngModel)]="email" #e=ngModel
+      >
+      <div *ngIf="e.errors && e.errors['required'] && (e.dirty || e.touched)" class="small-error">This field can't be empty</div>
+      <div *ngIf="e.errors && e.errors['pattern'] && (e.dirty || e.touched)" class="small-error">Not a valid email address</div>
+
+      <label>Working experience (months) </label>
+      <input type="number"
+             name="experience"
+             required
+             [(ngModel)]="experience" #wE=ngModel
+      >
+      <div *ngIf="wE.invalid && (wE.dirty || wE.touched)" class="small-error">This field can't be empty</div>
+    </div>
+    <div class="btn-container">
+      <button>Submit</button>
+      <button>Reset</button>
+    </div>
+
+  </form>
 
 </div>

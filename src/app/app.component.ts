@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from "@angular/forms";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgIf, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'application-form';
+
+  firstName = '';
+  lastName = '';
+  email = '';
+  experience = 0;
 
   //TODO: 1 https://angular.io/guide/form-validation
   //TODO: 2 Work experience custom validator to check, that it's a number & 1 number after comma.

@@ -16,3 +16,8 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.small-error {
+  color: red;
+  font-size: small;
+}
