@@ -38,8 +38,8 @@
       <div *ngIf="wE.invalid && (wE.dirty || wE.touched)" class="small-error">This field can't be empty</div>
     </div>
     <div class="btn-container">
-      <button>Submit</button>
-      <button>Reset</button>
+      <button type="submit">Submit</button>
+      <button (click)="clear()">Reset</button>
     </div>
 
   </form>

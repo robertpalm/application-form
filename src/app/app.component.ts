@@ -1,23 +1,29 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from "@angular/forms";
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from "@angular/forms";
 import {NgIf} from "@angular/common";
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, FormsModule],
+  imports: [NgIf, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  @ViewChild('form') form!: NgForm;
   title = 'application-form';
-
   firstName = '';
   lastName = '';
   email = '';
   experience = 0;
 
+
+  constructor() {
+  }
+  clear() {
+    if (this.form) {
+      this.form.resetForm();
+    }
+  }
   //TODO: 1 https://angular.io/guide/form-validation
   //TODO: 2 Work experience custom validator to check, that it's a number & 1 number after comma.
   //TODO: 3 If form input invalid, there should appear an error text under it.
