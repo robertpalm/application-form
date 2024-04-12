@@ -33,7 +33,7 @@ export class AppComponent {
   //DONE: 3 If form input invalid, there should appear an error text under it.
   //TODO: 4 Invalid "SUBMIT" message
   //DONE: 5 "RESET" clear all fields & errors
-  //TODO: 6 "RESET" success message
+  //DONE: 6 "RESET" success message
   //TODO: 7 Message as a reusable component that takes input props (text, type, color)
   //TODO: 8 Invalid input error text should appear/disappear on blur
 }
