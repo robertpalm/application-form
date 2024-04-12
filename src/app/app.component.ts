@@ -28,12 +28,21 @@ export class AppComponent {
       this.message = {type: 'info', text: 'Form cleared successfully.'};
     }
   }
+
+  submit() {
+    if (this.form.valid) {
+      this.message = {type: 'success', text: 'Form submitted successfully.'};
+    } else {
+      this.message = {type: 'error', text: 'Invalid form input.'};
+    }
+  }
+
   //TODO: 1 https://angular.io/guide/form-validation
   //TODO: 2 Work experience custom validator to check, that it's a number & 1 number after comma.
   //DONE: 3 If form input invalid, there should appear an error text under it.
-  //TODO: 4 Invalid "SUBMIT" message
+  //DONE: 4 Invalid "SUBMIT" message
   //DONE: 5 "RESET" clear all fields & errors
   //DONE: 6 "RESET" success message
-  //TODO: 7 Message as a reusable component that takes input props (text, type, color)
+  //DONE: 7 Message as a reusable component that takes input props (text, type, color)
   //TODO: 8 Invalid input error text should appear/disappear on blur
 }
